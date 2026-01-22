@@ -3,14 +3,14 @@ Library             AppiumLibrary
 
 Test Teardown       Terminate Application    openfoodfacts.github.scrachx.openfood
 
+
 *** Test Cases ***
 Consulter une fiche produit test 1
-    Skip  Vérifier que consulter une fiche produit permet d'accéder à plusieurs informations concernant ce produit (premier démarrage)
+    Skip
+    ...    Vérifier que consulter une fiche produit permet d'accéder à plusieurs informations concernant ce produit (premier démarrage)
 
 Consulter une fiche produit test 2
     Vérifier que consulter une fiche produit permet d'accéder à plusieurs informations concernant ce produit
-
-
 
 
 *** Keywords ***
