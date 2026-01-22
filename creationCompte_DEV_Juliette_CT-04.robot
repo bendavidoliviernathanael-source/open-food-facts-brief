@@ -24,9 +24,8 @@ CT-04 Création d'un compte utilisateur depuis le mode DEV de l'application Open
     ${Créer_un_compte} =    Set Variable    accessibility_id=Créer un compte
     Click Element    ${Créer_un_compte}
 
-    Wait Until Page Contains Element    ${Champ_Nom}    10s
-    Click Element    ${Champ_Nom}
     ${Champ_Nom} =    Set Variable    android=new UiSelector().className("android.widget.EditText").instance(0)
+    Click Element    ${Champ_Nom}
     Input Text    ${Champ_Nom}    BOUB
     ${Champ-Email} =    Set Variable    android=new UiSelector().className("android.widget.EditText").instance(1)
     Click Element    ${Champ-Email}
@@ -40,9 +39,8 @@ CT-04 Création d'un compte utilisateur depuis le mode DEV de l'application Open
     ${Confirmation_MDP} =    Set Variable    android=new UiSelector().className("android.widget.EditText").instance(4)
     Click Element    ${Confirmation_MDP}
     Input Text    ${Confirmation_MDP}    Petitourson!
-    ${Conditions_Utilisations} =    Set Variable
-    ...    accessibility_id=conditions d'utilisation et de contribution d'Open Food Facts
-    Click Element    ${Conditions_Utilisations}
+    ${Condditions_Utilisation} =    Set Variable    android=new UiSelector().description("Je suis d'accord avec les ")
+    Click Element    ${Condditions_Utilisation}
     ${Producteur_Alimentaire} =    Set Variable    accessibility_id=Je suis un producteur alimentaire
     Click Element    ${Producteur_Alimentaire}
     ${Séléction_Champ_Producteur} =    Set Variable
