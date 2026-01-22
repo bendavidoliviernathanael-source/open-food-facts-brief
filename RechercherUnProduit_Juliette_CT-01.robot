@@ -3,6 +3,7 @@ Library             AppiumLibrary
 
 Suite Setup         Open My Application
 Suite Teardown      Close Application
+Test Teardown       Terminate Application    openfoodfacts.github.scrachx.openfood
 
 
 *** Variables ***
