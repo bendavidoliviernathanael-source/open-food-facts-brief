@@ -1,0 +1,9 @@
+# Fichiers spécifiques à ignorer
+IMG_4054.jpg
+log.html
+openfoodfacts.github.scrachx.openfood_1576.apk
+output.xml
+report.html
+
+# Dossier à ignorer
+results/
