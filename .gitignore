@@ -7,3 +7,6 @@ report.html
 
 # Dossier à ignorer
 results/
+log.html
+output.xml
+report.html
