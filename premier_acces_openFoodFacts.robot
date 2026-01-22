@@ -33,23 +33,24 @@ Login
     VAR    ${el6} =    accessibility_id=Next
     Click Element    ${el6}
 
-    ${el7} =    Set Variable    accessibility_id=Next
+    VAR    ${el7} =    accessibility_id=Next
     Click Element    ${el7}
 
-    ${el8} =    Set Variable    accessibility_id=Next
+    VAR    ${el8} =       accessibility_id=Next
     Wait Until Element Is Visible    accessibility_id=Next    timeout=5s
     Click Element    ${el8}
 
-    ${el9} =    Set Variable    accessibility_id=Authorize
+    VAR    ${el9} =       accessibility_id=Authorize
     Wait Until Element Is Visible    accessibility_id=Authorize    timeout=5s
     Click Element    ${el9}
 
-    ${el10} =    Set Variable    id=com.android.permissioncontroller:id/permission_allow_foreground_only_button
+    VAR    ${el10} =     id=com.android.permissioncontroller:id/permission_allow_foreground_only_button
     Wait Until Element Is Visible
     ...    id=com.android.permissioncontroller:id/permission_allow_foreground_only_button
     ...    timeout=5s
 
     Click Element    ${el10}
+    Sleep    10s
 
 Accès à la page d'accueil en français
     # précondition: la localisation est en Français dans les paramètres système de l'émulateur
@@ -68,19 +69,19 @@ Accès à la page d'accueil en français
     VAR    ${el6} =    accessibility_id=Suivant
     Click Element    ${el6}
 
-    ${el7} =    Set Variable    accessibility_id=Suivant
+    VAR    ${el7} =       accessibility_id=Suivant
     Click Element    ${el7}
 
     Wait Until Element Is Visible    accessibility_id=Suivant    timeout=5s
-    ${el8} =    Set Variable    accessibility_id=Suivant
+    VAR    ${el8} =        accessibility_id=Suivant
     #    Wait Until Element Is Visible    accessibility_id=Suivant    timeout=10s
     Click Element    ${el8}
 
-    ${el9} =    Set Variable    accessibility_id=Autoriser
+    VAR    ${el9} =        accessibility_id=Autoriser
     Wait Until Element Is Visible    accessibility_id=Autoriser    timeout=10s
     Click Element    ${el9}
 
-    ${el10} =    Set Variable    id=com.android.permissioncontroller:id/permission_allow_foreground_only_button
+    VAR    ${el10} =    id=com.android.permissioncontroller:id/permission_allow_foreground_only_button
     Wait Until Element Is Visible
     ...    id=com.android.permissioncontroller:id/permission_allow_foreground_only_button
     ...    timeout=10s
