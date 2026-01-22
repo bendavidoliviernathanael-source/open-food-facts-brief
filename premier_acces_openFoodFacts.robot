@@ -12,7 +12,7 @@ Login
     # Premier accès à l'application OpenFoodFacts
     Launch App
 
-    VAR    ${el1} =    accessibility_id=Continue
+    VAR    ${el1}    accessibility_id=Continue
     Wait Until Element Is Visible    accessibility_id=Continue    timeout=5s
     Click Element    ${el1}
 
@@ -22,15 +22,15 @@ Login
     Click Element    ${el3}
     Input Text    ${el3}    france
 
-    VAR    ${el4} =    accessibility_id=OpenFoodFactsCountry.FRANCE
+    VAR    ${el4}     accessibility_id=OpenFoodFactsCountry.FRANCE
     Wait Until Element Is Visible    accessibility_id=OpenFoodFactsCountry.FRANCE    timeout=5s
     Click Element    ${el4}
 
-    VAR    ${el5} =    accessibility_id=Next
+    VAR    ${el5}     accessibility_id=Next
     Click Element    ${el5}
 
     Wait Until Element Is Visible    accessibility_id=Next    timeout=5s
-    VAR    ${el6} =    accessibility_id=Next
+    VAR    ${el6}     accessibility_id=Next
     Click Element    ${el6}
 
     ${el7} =    Set Variable    accessibility_id=Next
