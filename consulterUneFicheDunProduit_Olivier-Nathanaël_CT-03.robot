@@ -6,8 +6,8 @@ Test Teardown       Terminate Application    openfoodfacts.github.scrachx.openfo
 
 *** Test Cases ***
 Consulter une fiche produit test 1
-    Skip
-    ...    Vérifier que consulter une fiche produit permet d'accéder à plusieurs informations concernant ce produit (premier démarrage)
+   
+    Vérifier que consulter une fiche produit permet d'accéder à plusieurs informations concernant ce produit (premier démarrage)
 
 Consulter une fiche produit test 2
     Vérifier que consulter une fiche produit permet d'accéder à plusieurs informations concernant ce produit
@@ -87,8 +87,6 @@ Vérifier que consulter une fiche produit permet d'accéder à plusieurs informa
     Wait Until Element Is Visible    ${el4}    timeout=10s
     Click Element    ${el4}
 
-    # assertion 1 : la page devrait contenir le texte Goût Original
-    Page Should Contain Text    Goût Original
     # assertion 2 : l'élément avec ce xpath a un attribut dont la valeur devrait être égale à Goût Original
     ${el5} =    Set Variable    xpath=//android.view.View[@content-desc="Goût Original"]
     Wait Until Element Is Visible    ${el5}    10s
@@ -97,6 +95,8 @@ Vérifier que consulter une fiche produit permet d'accéder à plusieurs informa
     # assertion 3 : la page contient un élément avec un accessibility_id égal à Goût Original
     ${el6} =    Set Variable    accessibility_id=Goût Original
     Page Should Contain Element    ${el6}
+    # assertion 1 : la page devrait contenir le texte Goût Original
+    Page Should Contain Text    Goût Original
 
 Vérifier que consulter une fiche produit permet d'accéder à plusieurs informations concernant ce produit
     Démarrer openfoodfacts
@@ -106,8 +106,6 @@ Vérifier que consulter une fiche produit permet d'accéder à plusieurs informa
     Wait Until Element Is Visible    ${el4}    timeout=10s
     Click Element    ${el4}
 
-    # assertion 1 : la page devrait contenir le texte Goût Original
-    Page Should Contain Text    Goût Original
     # assertion 2 : l'élément avec ce xpath a un attribut dont la valeur devrait être égale à Goût Original
     ${el5} =    Set Variable    xpath=//android.view.View[@content-desc="Goût Original"]
     Wait Until Element Is Visible    ${el5}    10s
@@ -116,6 +114,8 @@ Vérifier que consulter une fiche produit permet d'accéder à plusieurs informa
     # assertion 3 : la page contient un élément avec un accessibility_id égal à Goût Original
     ${el6} =    Set Variable    accessibility_id=Goût Original
     Page Should Contain Element    ${el6}
+    # assertion 1 : la page devrait contenir le texte Goût Original
+    Page Should Contain Text    Goût Original
 
     # la page contient un onglet santé
     Page Should Contain Text    Santé
