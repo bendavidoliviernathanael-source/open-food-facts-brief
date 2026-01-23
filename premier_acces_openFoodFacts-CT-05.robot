@@ -1,14 +1,16 @@
 *** Settings ***
 Library     AppiumLibrary
 # Test Teardown    Close Application
-# Test Teardown    Terminate Application    openfoodfacts.github.scrachx.openfood
+Test Teardown    Terminate Application    openfoodfacts.github.scrachx.openfood
+
+Resource    ./Variables/variables-globales.robot
 
 *** Variables ***
-${APPIUM_SERVER}        http://127.0.0.1:4723
-${PLATFORM_NAME}        Android
-${AUTOMATION_NAME}      UIAutomator2
-${APP_PACKAGE}          openfoodfacts.github.scrachx.openfood
-${NO_RESET}             false
+${NEXT}     accessibility_id=Next
+${AUTHORISE}    accessibility_id=Authorize
+${PERMISSION_CONTROLLER}         id=com.android.permissioncontroller:id/permission_allow_foreground_only_button
+
+${SUIVANT}      accessibility_id=Suivant
 
 
 *** Test Cases ***
@@ -19,7 +21,7 @@ Login
     Launch App
 
     VAR    ${el1} =    accessibility_id=Continue
-    Wait Until Element Is Visible    accessibility_id=Continue    timeout=5s
+    Wait Until Element Is Visible    ${el1}    timeout=5s
     Click Element    ${el1}
 
     Click Element    xpath=//*[contains(@content-desc, "United States")]
@@ -29,33 +31,18 @@ Login
     Input Text    ${el3}    france
 
     VAR    ${el4} =    accessibility_id=OpenFoodFactsCountry.FRANCE
-    Wait Until Element Is Visible    accessibility_id=OpenFoodFactsCountry.FRANCE    timeout=5s
+    Wait Until Element Is Visible    ${el4}    timeout=5s
     Click Element    ${el4}
 
-    VAR    ${el5} =    accessibility_id=Next
-    Click Element    ${el5}
+    Repeat Keyword    4 times    Clic Next
 
-    Wait Until Element Is Visible    accessibility_id=Next    timeout=5s
-    VAR    ${el6} =    accessibility_id=Next
-    Click Element    ${el6}
+    Wait Until Element Is Visible    ${AUTHORISE}    timeout=5s
+    Click Element    ${AUTHORISE}
 
-    ${el7} =    Set Variable    accessibility_id=Next
-    Click Element    ${el7}
+    Wait Until Element Is Visible    ${PERMISSION_CONTROLLER}    timeout=5s
+    Click Element    ${PERMISSION_CONTROLLER}
 
-    ${el8} =    Set Variable    accessibility_id=Next
-    Wait Until Element Is Visible    accessibility_id=Next    timeout=5s
-    Click Element    ${el8}
-
-    ${el9} =    Set Variable    accessibility_id=Authorize
-    Wait Until Element Is Visible    accessibility_id=Authorize    timeout=5s
-    Click Element    ${el9}
-
-    ${el10} =    Set Variable    id=com.android.permissioncontroller:id/permission_allow_foreground_only_button
-    Wait Until Element Is Visible
-    ...    id=com.android.permissioncontroller:id/permission_allow_foreground_only_button
-    ...    timeout=5s
-
-    Click Element    ${el10}
+    Sleep     10s
 
 Accès à la page d'accueil en français
     # précondition: la localisation est en Français dans les paramètres système de l'émulateur
@@ -64,34 +51,17 @@ Accès à la page d'accueil en français
     Launch App
 
     VAR    ${el1} =    accessibility_id=Continuer
-    Wait Until Element Is Visible    accessibility_id=Continuer    timeout=10s
+    Wait Until Element Is Visible    ${el1}    timeout=10s
     Click Element    ${el1}
 
-    VAR    ${el5} =    accessibility_id=Suivant
-    Click Element    ${el5}
+    Repeat Keyword    4 times    Clic Suivant
 
-    Wait Until Element Is Visible    accessibility_id=Suivant    timeout=10s
-    VAR    ${el6} =    accessibility_id=Suivant
-    Click Element    ${el6}
-
-    ${el7} =    Set Variable    accessibility_id=Suivant
-    Click Element    ${el7}
-
-    Wait Until Element Is Visible    accessibility_id=Suivant    timeout=5s
-    ${el8} =    Set Variable    accessibility_id=Suivant
-    #    Wait Until Element Is Visible    accessibility_id=Suivant    timeout=10s
-    Click Element    ${el8}
-
-    ${el9} =    Set Variable    accessibility_id=Autoriser
-    Wait Until Element Is Visible    accessibility_id=Autoriser    timeout=10s
+    VAR     ${el9} =        accessibility_id=Autoriser
+    Wait Until Element Is Visible    ${el9}    timeout=10s
     Click Element    ${el9}
 
-    ${el10} =    Set Variable    id=com.android.permissioncontroller:id/permission_allow_foreground_only_button
-    Wait Until Element Is Visible
-    ...    id=com.android.permissioncontroller:id/permission_allow_foreground_only_button
-    ...    timeout=10s
-
-    Click Element    ${el10}
+    Wait Until Element Is Visible    ${PERMISSION_CONTROLLER}    timeout=5s
+    Click Element    ${PERMISSION_CONTROLLER}
 
     Sleep    10s
 
@@ -104,3 +74,11 @@ Launch App
     ...    appium:automationName=${AUTOMATION_NAME}
     ...    appium:appPackage=${APP_PACKAGE}
     ...    appium:noReset=${NO_RESET}
+
+Clic Next
+    Wait Until Element Is Visible    ${NEXT}    timeout=10s
+    Click Element    ${NEXT}
+
+Clic Suivant
+    Wait Until Element Is Visible    ${SUIVANT}    timeout=10s
+    Click Element    ${SUIVANT}
