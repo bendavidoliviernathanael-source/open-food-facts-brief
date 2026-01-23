@@ -4,16 +4,17 @@ Library             AppiumLibrary
 Test Teardown       Close Application
 # Test Teardown    Terminate Application    openfoodfacts.github.scrachx.openfood
 
+
 *** Test Cases ***
 Recherche d'un produit par son code barre
     Launch App
     # page de recherche
-    VAR    ${el11}        accessibility_id=Chercher un produit
+    VAR    ${el11}    accessibility_id=Chercher un produit
     Wait Until Element Is Visible    accessibility_id=Chercher un produit    timeout=5s
     Click Element    ${el11}
 
     Wait Until Element Is Visible    class=android.widget.EditText    timeout=5s
-    VAR    ${el12}        class=android.widget.EditText
+    VAR    ${el12}    class=android.widget.EditText
     Click Element    ${el12}
 
     Input Text    ${el12}    3250391781966
@@ -21,6 +22,10 @@ Recherche d'un produit par son code barre
     VAR    ${el13}    accessibility_id=Rechercher
 
     Click Element    ${el13}
+
+    ${el14}    Set Variable    accessibility_id=Moutarde de dijon bio
+
+    # Expect Element    ${el14}
 
 
 *** Keywords ***
