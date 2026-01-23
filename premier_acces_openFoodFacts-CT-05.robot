@@ -1,8 +1,14 @@
 *** Settings ***
-Library             AppiumLibrary
-
-# Test Teardown       Close Application
+Library     AppiumLibrary
+# Test Teardown    Close Application
 # Test Teardown    Terminate Application    openfoodfacts.github.scrachx.openfood
+
+*** Variables ***
+${APPIUM_SERVER}        http://127.0.0.1:4723
+${PLATFORM_NAME}        Android
+${AUTOMATION_NAME}      UIAutomator2
+${APP_PACKAGE}          openfoodfacts.github.scrachx.openfood
+${NO_RESET}             false
 
 
 *** Test Cases ***
@@ -12,7 +18,7 @@ Login
     # Premier accès à l'application OpenFoodFacts
     Launch App
 
-    VAR    ${el1}    accessibility_id=Continue
+    VAR    ${el1} =    accessibility_id=Continue
     Wait Until Element Is Visible    accessibility_id=Continue    timeout=5s
     Click Element    ${el1}
 
@@ -22,15 +28,15 @@ Login
     Click Element    ${el3}
     Input Text    ${el3}    france
 
-    VAR    ${el4}     accessibility_id=OpenFoodFactsCountry.FRANCE
+    VAR    ${el4} =    accessibility_id=OpenFoodFactsCountry.FRANCE
     Wait Until Element Is Visible    accessibility_id=OpenFoodFactsCountry.FRANCE    timeout=5s
     Click Element    ${el4}
 
-    VAR    ${el5}     accessibility_id=Next
+    VAR    ${el5} =    accessibility_id=Next
     Click Element    ${el5}
 
     Wait Until Element Is Visible    accessibility_id=Next    timeout=5s
-    VAR    ${el6}     accessibility_id=Next
+    VAR    ${el6} =    accessibility_id=Next
     Click Element    ${el6}
 
     ${el7} =    Set Variable    accessibility_id=Next
@@ -87,15 +93,14 @@ Accès à la page d'accueil en français
 
     Click Element    ${el10}
 
-    Sleep     10s
+    Sleep    10s
 
 
 *** Keywords ***
 Launch App
     Open Application
-    ...    http://127.0.0.1:4723
-    ...    platformName=Android
-    ...    appium:automationName=UIAutomator2
-    ...    appium:appPackage=openfoodfacts.github.scrachx.openfood
-    # ...    appium:appActivity=.MainActivity
-    ...    appium:noReset=false
+    ...    ${APPIUM_SERVER}
+    ...    platformName=${PLATFORM_NAME}
+    ...    appium:automationName=${AUTOMATION_NAME}
+    ...    appium:appPackage=${APP_PACKAGE}
+    ...    appium:noReset=${NO_RESET}
