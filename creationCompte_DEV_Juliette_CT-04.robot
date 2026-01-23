@@ -18,7 +18,7 @@ ${APPIUM_SERVER}    http://127.0.0.1:4723
 
 
 *** Test Cases ***
-CT-04 Création d'un compte utilisateur depuis le mode DEV de l'application Open Food Facts
+CT-06 Création d'un compte utilisateur depuis le mode DEV de l'application Open Food Facts
     ${Bouton_Communauté} =    Set Variable    accessibility_id=Communauté
     Click Element    ${Bouton_Communauté}
     ${Créer_un_compte} =    Set Variable    accessibility_id=Créer un compte
