@@ -1,8 +1,14 @@
 *** Settings ***
-Library             AppiumLibrary
-
-# Test Teardown       Close Application
+Library     AppiumLibrary
+# Test Teardown    Close Application
 # Test Teardown    Terminate Application    openfoodfacts.github.scrachx.openfood
+
+*** Variables ***
+${APPIUM_SERVER}        http://127.0.0.1:4723
+${PLATFORM_NAME}        Android
+${AUTOMATION_NAME}      UIAutomator2
+${APP_PACKAGE}          openfoodfacts.github.scrachx.openfood
+${NO_RESET}             false
 
 
 *** Test Cases ***
@@ -87,15 +93,14 @@ Accès à la page d'accueil en français
 
     Click Element    ${el10}
 
-    Sleep     10s
+    Sleep    10s
 
 
 *** Keywords ***
 Launch App
     Open Application
-    ...    http://127.0.0.1:4723
-    ...    platformName=Android
-    ...    appium:automationName=UIAutomator2
-    ...    appium:appPackage=openfoodfacts.github.scrachx.openfood
-    # ...    appium:appActivity=.MainActivity
-    ...    appium:noReset=false
+    ...    ${APPIUM_SERVER}
+    ...    platformName=${PLATFORM_NAME}
+    ...    appium:automationName=${AUTOMATION_NAME}
+    ...    appium:appPackage=${APP_PACKAGE}
+    ...    appium:noReset=${NO_RESET}
