@@ -1,9 +1,10 @@
 *** Settings ***
-Library     AppiumLibrary
-# Test Teardown    Close Application
-Test Teardown    Terminate Application    openfoodfacts.github.scrachx.openfood
+Library             AppiumLibrary
+Resource            ./Variables/variables-globales.robot
 
-Resource    ./Variables/variables-globales.robot
+# Test Teardown    Close Application
+Test Teardown       Terminate Application    openfoodfacts.github.scrachx.openfood
+
 
 *** Variables ***
 ${NEXT}     accessibility_id=Next
@@ -73,7 +74,7 @@ Launch App
     ...    platformName=${PLATFORM_NAME}
     ...    appium:automationName=${AUTOMATION_NAME}
     ...    appium:appPackage=${APP_PACKAGE}
-    ...    appium:noReset=${NO_RESET}
+    ...    appium:noReset=false
 
 Clic Next
     Wait Until Element Is Visible    ${NEXT}    timeout=10s
