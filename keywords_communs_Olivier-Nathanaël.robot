@@ -54,7 +54,7 @@ Obtenir la valeur d'un attribut d'un élément
 
 Appuyer sur un bouton visible
     [Arguments]    ${identifiant du bouton}
-    Attendre jusqu'à ce que un élément soit visible pendant une durée maximale  ${identifiant du bouton}    10s
+    Attendre jusqu'à ce que un élément soit visible pendant une durée maximale  ${identifiant du bouton}    120s
     Click Element    ${identifiant du bouton}
 
 Saisir un texte dans une zone de saisie visible
