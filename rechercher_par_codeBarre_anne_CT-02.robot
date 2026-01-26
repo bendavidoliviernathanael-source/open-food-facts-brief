@@ -1,21 +1,21 @@
 *** Settings ***
 Library             AppiumLibrary
-Resource    ./Variables/variables-globales.robot
+Resource            ./Variables/variables-globales.robot
 
+# Test Teardown    Close Application
+Test Teardown       Terminate Application    openfoodfacts.github.scrachx.openfood
 
-# Test Teardown       Close Application
-Test Teardown    Terminate Application    openfoodfacts.github.scrachx.openfood
 
 *** Variables ***
-# ${CODE_BARRE}       3250391781966
-# ${DESIGNATION_PRODUIT}      accessibility_id=Moutarde de dijon bio
+# ${CODE_BARRE}    3250391781966
+# ${DESIGNATION_PRODUIT}    accessibility_id=Moutarde de dijon bio
 ${CHERCHER_PRODUIT}     accessibility_id=Chercher un produit
-${Rechercher}       class=android.widget.EditText
+${Rechercher}           class=android.widget.EditText
 
 &{PRODUITS}
-...             3250391781966=Moutarde de dijon bio
-...             3057640257773=Eau Minérale Naturelle
-...             5449000214911=Coca-Cola
+...                     3250391781966=Moutarde de dijon bio
+...                     3057640257773=Eau Minérale Naturelle
+...                     5449000214911=Coca-Cola
 
 
 *** Test Cases ***
@@ -27,15 +27,15 @@ Recherche d'un produit par son code barre
     Wait Until Element Is Visible    ${CHERCHER_PRODUIT}    timeout=5s
     Click Element    ${CHERCHER_PRODUIT}
 
-    Sleep     5s
+    Sleep    5s
 
     # changement d'écran
     # cliquer sur la barre de recherche en haut de la fenêtre
     Wait Until Element Is Visible    ${Rechercher}    timeout=5s
     Click Element    ${Rechercher}
 
-    VAR    ${cpt}    0
-    FOR     ${code}    ${designation}    IN    &{PRODUITS}
+    VAR    ${cpt}    =0
+    FOR    ${code}    ${designation}    IN    &{PRODUITS}
         Rechercher un code barre    ${code}
         Sleep    5s
         Vérifier code barre = désignation    ${designation}
