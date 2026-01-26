@@ -1,10 +1,9 @@
 *** Settings ***
 Library             AppiumLibrary
-Resource            ./Variables/variables-globales.robot
+Resource    ./Variables/variables-globales.robot
 
 # Test Teardown    Close Application
 Test Teardown       Terminate Application    openfoodfacts.github.scrachx.openfood
-
 
 *** Variables ***
 ${NEXT}     accessibility_id=Next
