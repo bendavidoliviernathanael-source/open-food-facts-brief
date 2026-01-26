@@ -27,23 +27,23 @@ CT-06 Création d'un compte utilisateur depuis le mode DEV de l'application Open
 
     ${Champ_Nom} =    Set Variable    android=new UiSelector().className("android.widget.EditText").instance(0)
     Click Element    ${Champ_Nom}
-    Input Text    ${Champ_Nom}    BOUBASS
+    Input Text    ${Champ_Nom}    NOUVEAU2
 
     ${Champ-Email} =    Set Variable    android=new UiSelector().className("android.widget.EditText").instance(1)
     Click Element    ${Champ-Email}
-    Input Text    ${Champ-Email}    boubas-lesoursons@yahoo.fr
+    Input Text    ${Champ-Email}    nouveau2@yahoo.fr
 
     ${Nom_Utilisateur} =    Set Variable    android=new UiSelector().className("android.widget.EditText").instance(2)
     Click Element    ${Nom_Utilisateur}
-    Input Text    ${Nom_Utilisateur}    thebestoursons
+    Input Text    ${Nom_Utilisateur}    nouveaux
 
     ${Mot_de_Passe} =    Set Variable    android=new UiSelector().className("android.widget.EditText").instance(3)
     Click Element    ${Mot_de_Passe}
-    Input Text    ${Mot_de_Passe}    Petitourson!
+    Input Text    ${Mot_de_Passe}    Nouveau!
 
     ${Confirmation_MDP} =    Set Variable    android=new UiSelector().className("android.widget.EditText").instance(4)
     Click Element    ${Confirmation_MDP}
-    Input Text    ${Confirmation_MDP}    Petitourson!
+    Input Text    ${Confirmation_MDP}    Nouveau!
 
     ${Condditions_Utilisation} =    Set Variable    android=new UiSelector().description("Je suis d'accord avec les ")
     Click Element    ${Condditions_Utilisation}
@@ -53,7 +53,7 @@ CT-06 Création d'un compte utilisateur depuis le mode DEV de l'application Open
 
     ${Nom_du_Producteur} =    Set Variable    android=new UiSelector().className("android.widget.EditText").instance(5)
     Click Element    ${Nom_du_Producteur}
-    Input Text    ${Nom_du_Producteur}    Les Gateaux de Bouba
+    Input Text    ${Nom_du_Producteur}    Les Gateaux du week-end
 
     ${Newsletter} =    Set Variable
     ...    accessibility_id=Je souhaite m'inscrire à la newsletter Open Food Facts (Vous pouvez vous désinscrire à tout moment)
@@ -72,6 +72,14 @@ CT-06 Création d'un compte utilisateur depuis le mode DEV de l'application Open
 
     # Cliquer sur le bouton Ok
     Click Element    accessibility_id=Ok
+
+    # Se deconnecter du compte
+    ${Gerer_Votre_Compte} =    Set Variable    accessibility_id=Gérez votre compte
+    Click Element    ${Gerer_Votre_Compte}
+    ${Se_Deconecter} =    Set Variable    accessibility_id=Se déconnecter
+    Click Element    ${Se_Deconecter}
+    ${Confirmation_Deconnection} =    Set Variable    accessibility_id=Oui
+    Click Element    ${Confirmation_Deconnection}
 
 
 *** Keywords ***
