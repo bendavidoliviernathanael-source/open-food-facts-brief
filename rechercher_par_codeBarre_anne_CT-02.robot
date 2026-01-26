@@ -2,13 +2,10 @@
 Library             AppiumLibrary
 Resource            ./Variables/variables-globales.robot
 
-# Test Teardown    Close Application
 Test Teardown       Terminate Application    openfoodfacts.github.scrachx.openfood
 
 
 *** Variables ***
-# ${CODE_BARRE}    3250391781966
-# ${DESIGNATION_PRODUIT}    accessibility_id=Moutarde de dijon bio
 ${CHERCHER_PRODUIT}     accessibility_id=Chercher un produit
 ${Rechercher}           class=android.widget.EditText
 
