@@ -6,7 +6,7 @@ Test Teardown    Terminate Application    openfoodfacts.github.scrachx.openfood
 
 *** Test Cases ***
 Consulter une fiche produit test 1
-    Skip  Vérifier que consulter une fiche produit permet d'accéder à plusieurs informations concernant ce produit (premier démarrage)
+      Vérifier que consulter une fiche produit permet d'accéder à plusieurs informations concernant ce produit (premier démarrage)
 
 Consulter une fiche produit test 2
     Vérifier que consulter une fiche produit permet d'accéder à plusieurs informations concernant ce produit
@@ -28,7 +28,7 @@ Chercher un produit
     Appuyer sur un bouton visible    accessibility_id=Rechercher
 
 Vérifier des propriétés d'une fiche d'un produit
-    # un élément a un attribut dont la valeur est égale à Goût Original
+    # la page contient le texte Goût Original
     Attendre jusqu'à ce que un élément soit visible pendant une durée maximale
     ...    xpath=//android.view.View[@content-desc="Goût Original"]
     ...    20s
@@ -41,10 +41,14 @@ Vérifier des propriétés d'une fiche d'un produit
     Vérifier que l'écran contient un texte    Santé
 
     # la page contient une rubrique nutrition (qui contient l'information nutriscore)
+    # Vérifier que un élément a un texte    //android.view.View[@content-desc="Nutrition"]    Nutrition
     Attendre jusqu'à ce que un élément soit visible pendant une durée maximale
     ...    //android.view.View[@content-desc="Nutrition"]
     ...    10s
     Vérifier que l'écran contient un texte    Nutrition
+    Attendre jusqu'à ce que un élément soit visible pendant une durée maximale
+    ...    //android.widget.Button[@content-desc="Nutri-Score E"]
+    ...    10s
     Vérifier que l'écran contient un texte    Nutri-Score E
 
     # la page contient une rubrique Ingrédients (qui contient l'information quantité d'ingrédients)
@@ -52,6 +56,9 @@ Vérifier des propriétés d'une fiche d'un produit
     ...    //android.view.View[@content-desc="Ingrédients"]
     ...    10s
     Vérifier que l'écran contient un texte    Ingrédients
+    Attendre jusqu'à ce que un élément soit visible pendant une durée maximale
+    ...    //android.widget.Button[@content-desc="9 ingrédients"]
+    ...    10s
     Vérifier que l'écran contient un texte    9 ingrédients
 
 Vérifier que consulter une fiche produit permet d'accéder à plusieurs informations concernant ce produit (premier démarrage)
