@@ -134,6 +134,11 @@ CT-06 Création d'un compte utilisateur + déconnexion + reconnection
 
     Wait Until Element Is Visible    ${Pseudo_Affiche}    10s
 
+    # Vérif "connecté"
+    # ${Pseudo_Affiche} =    Set Variable    accessibility_id=${PSEUDO}
+    # Wait Until Element Is Visible    ${Pseudo_Affiche}    timeout=15s
+    # Wait Until Page Contains    Merci d'être l'un de nos membres !    timeout=15s
+
 
 *** Keywords ***
 Generate Unique Username
